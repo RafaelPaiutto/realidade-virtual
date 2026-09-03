@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartão Profissional em RA</title>
+  
+  <!-- Biblioteca A-Frame + MindAR -->
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Cena do MindAR -->
+  <a-scene 
+    mindar-image="imageTargetSrc: ./assets/targets/targets.mind;" 
+    color-space="sRGB" 
+    renderer="colorManagement: true, physicallyCorrectLights" 
+    vr-mode-ui="enabled: false" 
+    device-orientation-permission-ui="enabled: false">
+    
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <!-- Entidade vinculada ao Target (Cartão) -->
+    <a-entity mindar-image-target="targetIndex: 0">
+      
+      <!-- Bloco 1: Nome e Área (Painel Principal) -->
+      <a-plane position="0 0.4 0" width="1.5" height="0.4" color="#1E1E2C" opacity="0.9">
+        <a-text value="Seu Nome Aqui" align="center" position="0 0.08 0.01" scale="0.5 0.5 0.5" color="#FFFFFF"></a-text>
+        <a-text value="Desenvolvedor Web / AR" align="center" position="0 -0.08 0.01" scale="0.35 0.35 0.35" color="#00ADB5"></a-text>
+      </a-plane>
+
+      <!-- Bloco 2: Sobre mim / Habilidades -->
+      <a-plane position="-0.8 -0.1 0" width="1" height="0.6" color="#222831" opacity="0.9" rotation="0 15 0">
+        <a-text value="HABILIDADES" align="center" position="0 0.2 0.01" scale="0.3 0.3 0.3" color="#00ADB5"></a-text>
+        <a-text value="- HTML, CSS, JS\n- MindAR & A-Frame\n- Git & GitHub" align="left" position="-0.4 0 0.01" scale="0.25 0.25 0.25" color="#EEEEEE"></a-text>
+      </a-plane>
+
+      <!-- Bloco 3: Contato e Links -->
+      <a-plane position="0.8 -0.1 0" width="1" height="0.6" color="#222831" opacity="0.9" rotation="0 -15 0">
+        <a-text value="CONTATO" align="center" position="0 0.2 0.01" scale="0.3 0.3 0.3" color="#00ADB5"></a-text>
+        <a-text value="Email: seu@email.com\nGitHub: /seuusuario\nLinkedIn: /in/seuusuario" align="left" position="-0.4 0 0.01" scale="0.22 0.22 0.22" color="#EEEEEE"></a-text>
+      </a-plane>
+
+    </a-entity>
+  </a-scene>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
